@@ -229,3 +229,12 @@ section { position: relative; }
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   .rise, .reveal { opacity: 1; transform: none; }
 }
+
+/* Leadership */
+.person .avatar { aspect-ratio: 4/5; display: grid; place-items: center; position: relative; overflow: hidden; background: radial-gradient(circle at 30% 20%, var(--forest-700), var(--forest-900)); }
+.person .avatar::before { content: ""; position: absolute; inset: 0; background: url("../img/contours.svg") center/cover; opacity: .9; }
+.person .avatar span { position: relative; font: 400 clamp(4rem, 9vw, 6.5rem)/1 var(--font-display); font-style: italic; color: var(--leaf-soft); }
+.person .card-body { gap: var(--s3); }
+.person h3 { font-size: 1.5rem; }
+.person .tag { background: var(--forest-900); color: var(--white); letter-spacing: .08em; text-transform: none; font-size: .78rem; }
+.note code { font-size: .88em; background: var(--sand); padding: 1px 6px; border-radius: 4px; }
