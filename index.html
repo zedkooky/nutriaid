@@ -10,8 +10,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/motion.css">
+<script>try{if(!sessionStorage.getItem("nat-splash")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("splash-active")}catch(e){}</script>
 </head>
 <body>
+<div class="splash" id="splash" role="presentation" aria-hidden="true">
+  <div class="splash-panel top"></div><div class="splash-panel bottom"></div>
+  <div class="splash-center">
+    <img class="splash-logo" src="assets/img/logo.svg" alt="" width="1289" height="780">
+    <div class="splash-bar"><i></i></div>
+    <div class="splash-meta"><span>Zambia · Est. 2007</span><span class="splash-count">000</span></div>
+  </div>
+</div>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="site-header">
@@ -131,7 +141,7 @@
         <path class="flow" d="M370 180 C 430 180, 450 180, 510 180" stroke="#c00000" stroke-width="3" fill="none"/>
         <path d="M80 130 C 120 40, 500 40, 540 130" stroke="#12351f" stroke-opacity=".35" stroke-width="2" fill="none" stroke-dasharray="2 7" stroke-linecap="round"/>
         <g><circle cx="80" cy="180" r="48" fill="#12351f"/><text class="node-label" x="80" y="176" text-anchor="middle" fill="#fff" style="fill:#fff">Agro-</text><text class="node-label" x="80" y="192" text-anchor="middle" style="fill:#fff">dealers</text></g>
-        <g><circle cx="310" cy="180" r="62" fill="#5aa81e"/><text class="node-label" x="310" y="176" text-anchor="middle" style="fill:#0c2417">Smallholder</text><text class="node-label" x="310" y="194" text-anchor="middle" style="fill:#0c2417">farmers</text></g>
+        <circle class="pulse" cx="310" cy="180" r="62"/><circle class="pulse p2" cx="310" cy="180" r="62"/><g><circle cx="310" cy="180" r="62" fill="#5aa81e"/><text class="node-label" x="310" y="176" text-anchor="middle" style="fill:#0c2417">Smallholder</text><text class="node-label" x="310" y="194" text-anchor="middle" style="fill:#0c2417">farmers</text></g>
         <g><circle cx="540" cy="180" r="48" fill="#c00000"/><text class="node-label" x="540" y="176" text-anchor="middle" style="fill:#fff">Commercial</text><text class="node-label" x="540" y="192" text-anchor="middle" style="fill:#fff">buyers</text></g>
         <text class="node-sub" x="180" y="164" text-anchor="middle">inputs · credit</text>
         <text class="node-sub" x="440" y="164" text-anchor="middle">fair-price off-take</text>
@@ -166,6 +176,7 @@
   </div>
 </footer>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/motion.js"></script>
 <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
 </body>
 </html>

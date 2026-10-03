@@ -1,0 +1,69 @@
+/* Splash screen + site-wide motion. Loaded after style.css. */
+
+/* ---------- Splash (home only, once per session) ---------- */
+.splash { display: none; position: fixed; inset: 0; z-index: 200; cursor: pointer; }
+.splash-active .splash { display: block; }
+.splash-active body { overflow: hidden; }
+.splash-panel { position: absolute; left: 0; right: 0; height: 50.2%; background: var(--cream); transition: transform 1.05s cubic-bezier(.8, 0, .15, 1); }
+.splash-panel.top { top: 0; } .splash-panel.bottom { bottom: 0; }
+.splash-panel::after { content: ""; position: absolute; left: 0; right: 0; height: 3px; background: var(--leaf); opacity: 0; transition: opacity .2s; }
+.splash.open .splash-panel::after { opacity: 1; }
+.splash-panel.top::after { bottom: 0; } .splash-panel.bottom::after { top: 0; }
+.splash.open .splash-panel.top { transform: translateY(-101%); }
+.splash.open .splash-panel.bottom { transform: translateY(101%); }
+.splash-center { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: var(--s5); transition: opacity .35s, transform .6s var(--ease); }
+.splash.open .splash-center { opacity: 0; transform: scale(1.06); }
+.splash-logo { width: min(380px, 70vw); height: auto; opacity: 0; clip-path: inset(0 100% 0 0); animation: logoWipe 1.3s .25s cubic-bezier(.7, 0, .2, 1) forwards; }
+@keyframes logoWipe { to { opacity: 1; clip-path: inset(0 0 0 0); } }
+.splash-bar { width: min(380px, 70vw); height: 3px; background: rgba(12, 36, 23, .12); overflow: hidden; border-radius: 2px; }
+.splash-bar i { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, var(--leaf), var(--crimson)); transform: scaleX(0); transform-origin: left; animation: fill 2.1s .2s cubic-bezier(.6, 0, .2, 1) forwards; }
+@keyframes fill { to { transform: scaleX(1); } }
+.splash-meta { display: flex; justify-content: space-between; width: min(380px, 70vw); font: 700 .72rem var(--font-body); letter-spacing: .2em; text-transform: uppercase; color: var(--ink-soft); }
+.splash-count { font-variant-numeric: tabular-nums; color: var(--forest-900); }
+.splash-active .rise { animation-play-state: paused; }
+
+/* ---------- Motion throughout ---------- */
+.scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 100%; background: linear-gradient(90deg, var(--leaf), var(--crimson)); transform: scaleX(0); transform-origin: left; z-index: 60; pointer-events: none; }
+.hero-bg { animation: kenburns 24s ease-out forwards; }
+@keyframes kenburns { from { scale: 1.12; } to { scale: 1; } }
+
+/* word-by-word headline reveal */
+.w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .12em; margin-bottom: -.12em; }
+.w > span { display: inline-block; transform: translateY(105%); transition: transform .9s var(--ease); transition-delay: calc(var(--k) * 55ms); }
+.in .w > span, .in.w > span { transform: none; }
+
+/* image unveil */
+.collage .a { clip-path: inset(0 0 100% 0); transition: clip-path 1.3s cubic-bezier(.7, 0, .2, 1) .15s; }
+.collage.in .a { clip-path: inset(0 0 0 0); }
+.collage .b { transform: scale(0); transition: transform .8s cubic-bezier(.3, 1.5, .5, 1) .9s; }
+.collage.in .b { transform: none; }
+.collage .leaf { transform-origin: bottom left; transform: scale(0) rotate(-40deg); transition: transform .9s var(--ease) 1.2s; }
+.collage.in .leaf { transform: none; }
+
+/* pillar icons draw themselves */
+.pillar svg path { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.6s ease .3s; }
+.pillar.in svg path { stroke-dashoffset: 0; }
+
+/* diagram: nodes pop in, farmers pulse */
+.chain svg g { transform-box: fill-box; transform-origin: center; transition: transform .8s cubic-bezier(.3, 1.4, .5, 1), opacity .6s; }
+.chain .reveal:not(.in) svg g { transform: scale(.4); opacity: 0; }
+.chain svg g:nth-of-type(2) { transition-delay: .25s; }
+.chain svg g:nth-of-type(3) { transition-delay: .5s; }
+.pulse { fill: none; stroke: var(--leaf); stroke-width: 2; transform-box: fill-box; transform-origin: center; animation: pulse 2.8s ease-out infinite; }
+.pulse.p2 { animation-delay: 1.4s; }
+@keyframes pulse { from { transform: scale(1); opacity: .8; } to { transform: scale(1.7); opacity: 0; } }
+
+/* buttons: light sweep; marquee pauses on hover; initials tilt */
+.btn-primary { position: relative; overflow: hidden; }
+.btn-primary::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, .35) 50%, transparent 70%); transform: translateX(-120%); transition: transform .7s var(--ease); }
+.btn-primary:hover::after { transform: translateX(120%); }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.person .avatar span { transition: transform .6s var(--ease); }
+.card:hover .avatar span { transform: scale(1.12) rotate(-3deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .splash { display: none !important; }
+  .w > span, .collage .a, .collage .b, .collage .leaf { transform: none !important; clip-path: none !important; }
+  .pillar svg path { stroke-dashoffset: 0; }
+  .chain .reveal:not(.in) svg g { transform: none; opacity: 1; }
+}
