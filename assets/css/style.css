@@ -56,18 +56,19 @@ p { margin: 0; text-wrap: pretty; }
 .btn:hover .arr { transform: translateX(4px); }
 
 /* Header */
-.site-header { position: fixed; inset: 0 0 auto 0; z-index: 50; transition: background .3s, box-shadow .3s, padding .3s; padding: 18px 0; }
-.site-header.scrolled, .site-header.solid { background: rgba(249,243,232,.94); backdrop-filter: blur(12px); box-shadow: 0 1px 0 rgba(12,36,23,.1); padding: 6px 0; }
-.nav { display: flex; align-items: center; justify-content: space-between; gap: var(--s5); }
-.brand img { height: 92px; width: auto; transition: height .3s; background: var(--cream); border-radius: 14px; padding: 8px 14px; box-shadow: 0 8px 24px -10px rgba(0,0,0,.5); }
-.scrolled .brand img, .solid .brand img { height: 72px; padding: 0; background: none; box-shadow: none; }
+.site-header { position: fixed; inset: 14px 0 auto 0; z-index: 50; }
+.nav { position: relative; isolation: isolate; display: flex; align-items: center; justify-content: space-between; gap: var(--s5); padding: 6px 14px 6px 22px; width: min(1240px, 100% - 28px); margin-inline: auto; }
+/* Glass lives on a pseudo-element so the mobile menu overlay (position: fixed) isn't trapped by backdrop-filter */
+.nav::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: 999px; background: rgba(249,243,232,.7); -webkit-backdrop-filter: blur(18px) saturate(1.6); backdrop-filter: blur(18px) saturate(1.6); border: 1px solid rgba(255,255,255,.55); box-shadow: 0 14px 40px -14px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.7); transition: background .3s; }
+.scrolled .nav::before { background: rgba(249,243,232,.86); }
+@supports not (backdrop-filter: blur(1px)) { .nav::before { background: rgba(249,243,232,.96); } }
+.brand img { height: 76px; width: auto; }
 .nav-links { display: flex; align-items: center; gap: var(--s6); list-style: none; margin: 0; padding: 0; }
-.nav-links a { text-decoration: none; font-weight: 600; font-size: .95rem; position: relative; padding: 6px 0; color: var(--white); }
-.scrolled .nav-links a, .solid .nav-links a { color: var(--ink); }
+.nav-links a { text-decoration: none; font-weight: 700; font-size: .95rem; position: relative; padding: 6px 0; color: var(--ink); }
 .nav-links a:not(.btn)::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--leaf); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--ease); }
 .nav-links a:not(.btn):hover::after, .nav-links a[aria-current="page"]::after { transform: scaleX(1); }
 .nav-links .btn { color: var(--white); padding: 10px 22px; min-height: 44px; }
-.menu-btn { display: none; width: 48px; height: 48px; border: 0; border-radius: 12px; background: var(--cream); cursor: pointer; position: relative; }
+.menu-btn { display: none; width: 48px; height: 48px; border: 0; border-radius: 50%; background: rgba(12,36,23,.08); cursor: pointer; position: relative; }
 .menu-btn span, .menu-btn span::before, .menu-btn span::after { position: absolute; left: 13px; width: 22px; height: 2px; background: var(--forest-900); content: ""; transition: transform .3s var(--ease), opacity .2s; }
 .menu-btn span { top: 23px; } .menu-btn span::before { left: 0; top: -7px; } .menu-btn span::after { left: 0; top: 7px; }
 .menu-btn[aria-expanded="true"] span { background: transparent; }
@@ -202,16 +203,15 @@ section { position: relative; }
   .hero-badge { display: none; }
 }
 @media (max-width: 860px) {
-  .site-header.scrolled, .site-header.solid { backdrop-filter: none; background: var(--cream); }
   .menu-btn { display: block; }
-  .nav-links { position: fixed; inset: 0; background: var(--forest-900); flex-direction: column; justify-content: center; gap: var(--s5); opacity: 0; visibility: hidden; transform: translateY(-12px); transition: .35s var(--ease); }
+  .nav { padding: 4px 8px 4px 16px; }
+  .brand img { height: 58px; }
+  .nav-links { position: fixed; inset: 0; background: var(--cream); flex-direction: column; justify-content: center; gap: var(--s5); opacity: 0; visibility: hidden; transform: translateY(-12px); transition: .35s var(--ease); }
   .nav-links.open { opacity: 1; visibility: visible; transform: none; }
-  .nav-links a, .scrolled .nav-links a, .solid .nav-links a { color: var(--white); font: 400 2rem var(--font-display); }
-  .nav-links .btn { font: 700 1rem var(--font-body); }
+  .nav-links a { font: 400 2rem var(--font-display); }
+  .nav-links .btn { font: 700 1rem var(--font-body); color: var(--white); }
   .menu-btn { z-index: 60; position: relative; }
   .brand { position: relative; z-index: 60; }
-  .brand img { height: 64px; }
-  .scrolled .brand img, .solid .brand img { background: var(--cream); padding: 4px 8px; border-radius: 10px; height: 60px; }
 }
 @media (max-width: 600px) {
   .section { padding: var(--s8) 0; }
