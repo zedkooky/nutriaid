@@ -56,13 +56,13 @@ p { margin: 0; text-wrap: pretty; }
 .btn:hover .arr { transform: translateX(4px); }
 
 /* Header */
-.site-header { position: fixed; inset: 14px 0 auto 0; z-index: 50; }
-.nav { position: relative; isolation: isolate; display: flex; align-items: center; justify-content: space-between; gap: var(--s5); padding: 6px 14px 6px 22px; width: min(1240px, 100% - 28px); margin-inline: auto; }
+.site-header { position: fixed; inset: 0 0 auto 0; z-index: 50; }
+.nav { position: relative; isolation: isolate; display: flex; align-items: center; justify-content: space-between; gap: var(--s5); padding: 6px max(20px, calc((100% - var(--wrap)) / 2)); width: 100%; }
 /* Glass lives on a pseudo-element so the mobile menu overlay (position: fixed) isn't trapped by backdrop-filter */
-.nav::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: 999px; background: rgba(249,243,232,.7); -webkit-backdrop-filter: blur(18px) saturate(1.6); backdrop-filter: blur(18px) saturate(1.6); border: 1px solid rgba(255,255,255,.55); box-shadow: 0 14px 40px -14px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.7); transition: background .3s; }
+.nav::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: 0; background: rgba(249,243,232,.72); -webkit-backdrop-filter: blur(18px) saturate(1.6); backdrop-filter: blur(18px) saturate(1.6); border-bottom: 1px solid rgba(255,255,255,.55); box-shadow: 0 10px 30px -14px rgba(0,0,0,.5); transition: background .3s; }
 .scrolled .nav::before { background: rgba(249,243,232,.86); }
 @supports not (backdrop-filter: blur(1px)) { .nav::before { background: rgba(249,243,232,.96); } }
-.brand img { height: 76px; width: auto; }
+.brand img { height: 88px; width: auto; }
 .nav-links { display: flex; align-items: center; gap: var(--s6); list-style: none; margin: 0; padding: 0; }
 .nav-links a { text-decoration: none; font-weight: 700; font-size: .95rem; position: relative; padding: 6px 0; color: var(--ink); }
 .nav-links a:not(.btn)::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--leaf); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--ease); }
@@ -204,8 +204,8 @@ section { position: relative; }
 }
 @media (max-width: 860px) {
   .menu-btn { display: block; }
-  .nav { padding: 4px 8px 4px 16px; }
-  .brand img { height: 58px; }
+  .nav { padding: 4px 16px; }
+  .brand img { height: 66px; }
   .nav-links { position: fixed; inset: 0; background: var(--cream); flex-direction: column; justify-content: center; gap: var(--s5); opacity: 0; visibility: hidden; transform: translateY(-12px); transition: .35s var(--ease); }
   .nav-links.open { opacity: 1; visibility: visible; transform: none; }
   .nav-links a { font: 400 2rem var(--font-display); }
