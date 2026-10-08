@@ -48,6 +48,8 @@ jobs:
           else T=staging; fi
           if [ "$T" = "live" ]; then DIR='${{ secrets.FTP_LIVE_DIR }}'; else DIR='${{ secrets.FTP_STAGING_DIR }}'; fi
           MISSING=""
+          # The upload action needs a folder path that ends in "/"; add it if the secret has none.
+          [ -z "$DIR" ] || DIR="${DIR%/}/"
           [ -n '${{ secrets.FTP_SERVER }}' ] || MISSING="$MISSING FTP_SERVER"
           [ -n '${{ secrets.FTP_USERNAME }}' ] || MISSING="$MISSING FTP_USERNAME"
           [ -n '${{ secrets.FTP_PASSWORD }}' ] || MISSING="$MISSING FTP_PASSWORD"
