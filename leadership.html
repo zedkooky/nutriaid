@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/motion.css">
+<link rel="stylesheet" href="assets/css/extra.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -20,11 +21,13 @@
     <a class="brand" href="index.html" aria-label="Nutri-Aid Trust home"><img src="assets/img/logo.svg" alt="Nutri-Aid Trust" width="1289" height="780"></a>
     <button class="menu-btn" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><span></span></button>
     <ul class="nav-links" id="nav-links">
-      <li><a href="index.html">Home</a></li>
+      <li class="nav-home"><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="projects.html">Projects</a></li>
       <li><a href="impact.html">Impact</a></li>
       <li><a href="leadership.html" aria-current="page">Leadership</a></li>
       <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="careers.html">Careers</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a class="btn btn-primary" href="index.html#partner">Partner With Us</a></li>
     </ul>
@@ -36,14 +39,13 @@
 <span class="eyebrow rise">Our leadership</span><h1 class="rise" style="--i:1">Guiding Nutri-Aid Trust</h1><p class="lede rise" style="--i:2">Guiding Nutri-Aid Trust with decades of expertise in agribusiness, economic development, and sustainable impact.</p></div></section>
 <section class="section"><div class="wrap"><div class="section-head reveal"><span class="eyebrow">Senior management</span></div>
 <div class="grid-3">
-<article class="card person reveal" style="--i:0"><div class="avatar" role="img" aria-label="Photo of Peter Manda coming soon"><span>PM</span></div><div class="card-body"><h3>Peter Manda</h3><span class="tag">Country Director</span></div></article>
+<article class="card person reveal" style="--i:0"><img class="photo" src="assets/img/team/peter-manda.jpg" alt="Portrait of Peter Manda" width="480" height="600" loading="lazy"><div class="card-body"><h3>Peter Manda</h3><span class="tag">Country Director</span><p class="bio">Peter Manda is an agribusiness professional with over 30 years of experience contributing value-chain expertise to development programmes in Zambia, including 25 years in agribusiness production and marketing. He has led donor relationships, carried out market analyses, developed value chains, built business linkages and supported trade facilitation. He holds an MSc in Agronomy.</p></div></article>
 <article class="card person reveal" style="--i:1"><div class="avatar" role="img" aria-label="Photo of Mercy Kanswata coming soon"><span>MK</span></div><div class="card-body"><h3>Mercy Kanswata</h3><span class="tag">Head of Finance / Administration</span></div></article>
 <article class="card person reveal" style="--i:2"><div class="avatar" role="img" aria-label="Photo of Marrian Kafuni coming soon"><span>MK</span></div><div class="card-body"><h3>Marrian Kafuni</h3><span class="tag">HR / Office Admin</span></div></article>
-<article class="card person reveal" style="--i:0"><div class="avatar" role="img" aria-label="Photo of Evans Bwenbya coming soon"><span>EB</span></div><div class="card-body"><h3>Evans Bwenbya</h3><span class="tag">Monitoring &amp; Evaluation Officer</span></div></article>
-<article class="card person reveal" style="--i:1"><div class="avatar" role="img" aria-label="Photo of Mukonde Siafunda coming soon"><span>MS</span></div><div class="card-body"><h3>Mukonde Siafunda</h3><span class="tag">Programs Director</span></div></article>
+<article class="card person reveal" style="--i:0"><div class="avatar" role="img" aria-label="Photo of Evans Bwembya coming soon"><span>EB</span></div><div class="card-body"><h3>Evans Bwembya</h3><span class="tag">Monitoring &amp; Evaluation Officer</span><p class="bio">Evans Bwembya is a monitoring, evaluation, accountability, learning and reporting specialist with over eight years of experience in data management, analysis and reporting. He designs data-collection tools, analyses results and has worked on community mobilisation and gender-inclusion programmes. He holds a bachelor&rsquo;s degree in Library and Information Science and Development Studies from the University of Zambia.</p></div></article>
+<article class="card person reveal" style="--i:1"><img class="photo" src="assets/img/team/mukonde-siafunda.jpg" alt="Portrait of Mukonde Siafunda" width="480" height="600" loading="lazy"><div class="card-body"><h3>Mukonde Siafunda</h3><span class="tag">Programs Director</span><p class="bio">Mukonde Siafunda is an expert in building the capacity of smallholder farmers and agribusiness SMEs, with four decades in public- and private-sector agriculture. As Programs Director she has led projects that grow farmers and agribusiness through entrepreneurship, mentoring and market linkages, and has trained farmer groups, especially women, in climate-smart practices, savings groups and nutrition. She holds an MBA and a BA in Development Studies.</p></div></article>
 <article class="card person reveal" style="--i:2"><div class="avatar" role="img" aria-label="Photo of Jeff Saminganja coming soon"><span>JS</span></div><div class="card-body"><h3>Jeff Saminganja</h3><span class="tag">Finance Officer</span></div></article>
 </div>
-<p class="note">Portraits are initials for now — add photos by replacing each <code>.avatar</code> div with an <code>&lt;img&gt;</code> (4:5).</p>
 </div></section>
 </main>
 
@@ -51,9 +53,9 @@
   <div class="wrap">
     <div class="foot-grid">
       <div><img src="assets/img/logo.svg" alt="Nutri-Aid Trust" width="1289" height="780"><p>Strengthening rural enterprise and growing agricultural futures across Zambia since 2007.</p></div>
-      <div><h4>Explore</h4><ul><li><a href="projects.html">Projects</a></li><li><a href="impact.html">Impact</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Explore</h4><ul><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="impact.html">Impact</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact</a></li></ul></div>
       <div><h4>Our work</h4><ul><li><a href="index.html#expertise">Agro-dealer development</a></li><li><a href="index.html#expertise">Technical training</a></li><li><a href="index.html#expertise">Market linkages</a></li><li><a href="index.html#expertise">Financial inclusion</a></li></ul></div>
-      <div><h4>Contact</h4><ul><li>[Physical address, Lusaka]</li><li><a href="tel:0572241411">0572241411</a></li><li><a href="mailto:info@nutriaidtrust.org">info@nutriaidtrust.org</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li>YWCA Building, Nationalist Road, opposite UTH, Lusaka, Zambia</li><li><a href="tel:0572241411">0572241411</a></li><li><a href="mailto:info@nutriaidtrust.org">info@nutriaidtrust.org</a></li></ul></div>
     </div>
     <div class="foot-base"><span>© 2007–<span id="yr">2026</span> Nutri-Aid Trust. All rights reserved.</span><span><a href="#">Privacy Policy</a> · <a href="contact.html">Contact Us</a></span></div>
   </div>

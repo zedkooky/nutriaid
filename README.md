@@ -2,7 +2,7 @@
 
 Static site (no build step). Open `index.html` or run `python -m http.server 4173`.
 
-- `index.html` home · `projects.html` · `impact.html` · `leadership.html` · `gallery.html` · `contact.html`
+- `index.html` home · `projects.html` · `impact.html` · `leadership.html` · `gallery.html` · `about.html` · `careers.html` · `contact.html`
 - `assets/css/style.css` — design tokens live at the top (`:root`); change colours/fonts there
 - `assets/js/main.js` — menu, scroll reveal, count-up stats, filter chips
 - Gallery: add a photo by copying a `<figure class="gcard">` block in `gallery.html` (full image + `-sm` thumbnail in `assets/img/gallery/`, `data-cat` = gardens, crops, people or livestock). Lightbox is `assets/js/gallery.js`; gallery and contact styles are in `assets/css/extra.css`.
