@@ -1,0 +1,76 @@
+# Uploads the site to the FTP server.
+#   push to "staging" or "claude/**"  ->  staging folder (noindex)
+#   push to "main"                    ->  live folder
+#   manual run                        ->  pick staging or live (and an optional dry run)
+#
+# Repository secrets (Settings > Secrets and variables > Actions):
+#   FTP_SERVER       host name, e.g. ftp.example.com
+#   FTP_USERNAME
+#   FTP_PASSWORD
+#   FTP_STAGING_DIR  folder for the staging site, with trailing slash, e.g. /public_html/staging/
+#   FTP_LIVE_DIR     folder for the live site, with trailing slash, e.g. /public_html/
+#   FTP_PROTOCOL     optional: ftp (default), ftps or ftps-legacy. Use ftps if the host supports it.
+#   FTP_PORT         optional: defaults to 21
+name: FTP deploy
+
+on:
+  push:
+    branches: [main, staging, "claude/**"]
+  workflow_dispatch:
+    inputs:
+      target:
+        description: Where to upload
+        type: choice
+        options: [staging, live]
+        default: staging
+      dry_run:
+        description: Dry run (show what would change, upload nothing)
+        type: boolean
+        default: true
+
+concurrency:
+  group: ftp-deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # "production" can be given required reviewers in Settings > Environments, so live uploads need a click to approve.
+    environment: ${{ (github.event_name == 'workflow_dispatch' && inputs.target == 'live' || github.ref == 'refs/heads/main') && 'production' || 'staging' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Choose target
+        id: t
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then T="${{ inputs.target }}"
+          elif [ "${{ github.ref }}" = "refs/heads/main" ]; then T=live
+          else T=staging; fi
+          if [ "$T" = "live" ]; then DIR='${{ secrets.FTP_LIVE_DIR }}'; else DIR='${{ secrets.FTP_STAGING_DIR }}'; fi
+          for v in FTP_SERVER FTP_USERNAME FTP_PASSWORD; do
+            case $v in
+              FTP_SERVER) val='${{ secrets.FTP_SERVER }}';;
+              FTP_USERNAME) val='${{ secrets.FTP_USERNAME }}';;
+              FTP_PASSWORD) val='${{ secrets.FTP_PASSWORD }}';;
+            esac
+            [ -n "$val" ] || { echo "::error::Missing secret $v"; exit 1; }
+          done
+          [ -n "$DIR" ] || { echo "::error::Missing secret FTP_${T^^}_DIR"; exit 1; }
+          echo "target=$T" >> "$GITHUB_OUTPUT"
+          echo "dir=$DIR" >> "$GITHUB_OUTPUT"
+          echo "Uploading to the $T folder"
+
+      - name: Build
+        run: .github/scripts/build.sh ${{ steps.t.outputs.target }}
+
+      - name: Upload over FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ${{ secrets.FTP_PROTOCOL || 'ftp' }}
+          port: ${{ secrets.FTP_PORT || 21 }}
+          local-dir: ./_site/
+          server-dir: ${{ steps.t.outputs.dir }}
+          dry-run: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || false }}

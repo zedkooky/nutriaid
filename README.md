@@ -11,3 +11,10 @@ Static site (no build step). Open `index.html` or run `python -m http.server 417
 - Fonts: Fraunces + Manrope (Google Fonts). Brand: leaf green `#5aa81e`, red `#c00000`
 
 Deploy: GitHub Pages (Settings → Pages → main / root) or any static host.
+
+## Staging and deployment
+- **Preview (GitHub Pages):** Settings > Pages > Source = "GitHub Actions". Pushes to `staging` (or a `claude/**` branch) publish a noindex preview via `.github/workflows/pages-preview.yml`.
+- **FTP:** `.github/workflows/ftp-deploy.yml` uploads over FTP. Pushes to `staging` / `claude/**` go to the staging folder (noindex), pushes to `main` go to the live folder, and the Actions tab can run either by hand (dry run by default).
+- **Secrets** (Settings > Secrets and variables > Actions): `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`, `FTP_STAGING_DIR`, `FTP_LIVE_DIR` (both with a trailing slash), optional `FTP_PROTOCOL` (`ftp`, `ftps`) and `FTP_PORT`.
+- The build step is `.github/scripts/build.sh staging|live`. It copies the site to `_site/` and, for staging, adds `noindex` and a blocking `robots.txt`.
+- Go-live: check staging, point the domain's DNS at the FTP host, keep the Bolt site until the real domain checks out.
