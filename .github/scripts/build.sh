@@ -4,7 +4,7 @@
 set -euo pipefail
 MODE="${1:?usage: build.sh staging|live}"
 rm -rf _site && mkdir _site
-tar --exclude='./.git' --exclude='./.github' --exclude='./_site' --exclude='./README.md' --exclude='./.gitignore' -cf - . | tar -xf - -C _site
+tar --exclude='./.git' --exclude='./.github' --exclude='./_site' --exclude='./docs-src' --exclude='./README.md' --exclude='./.gitignore' -cf - . | tar -xf - -C _site
 if [ "$MODE" = "staging" ]; then
   find _site -name '*.html' -exec sed -i 's|</head>|<meta name="robots" content="noindex, nofollow">\n</head>|' {} +
   printf 'User-agent: *\nDisallow: /\n' > _site/robots.txt

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Impact — Nutri-Aid Trust</title>
-<meta name="description" content="Nutri-Aid Trust is a Zambian agribusiness NGO building agro-dealer networks, training farmers and linking smallholders to markets since 2007.">
+<title>News — Nutri-Aid Trust</title>
+<meta name="description" content="Latest news and updates from Nutri-Aid Trust on Facebook and LinkedIn.">
 <link rel="icon" href="assets/img/logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,8 +24,8 @@
       <li class="nav-home"><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li><a href="impact.html" aria-current="page">Impact</a></li>
-      <li><a href="news.html">News</a></li>
+      <li><a href="impact.html">Impact</a></li>
+      <li><a href="news.html" aria-current="page">News</a></li>
       <li><a href="leadership.html">Leadership</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="careers.html">Careers</a></li>
@@ -37,10 +37,13 @@
 
 <main id="main">
 <section class="page-hero on-dark"><div class="contours" aria-hidden="true"></div><div class="wrap">
-<span class="eyebrow rise">Impact</span><h1 class="rise" style="--i:1">Where our work makes a difference</h1><p class="lede rise" style="--i:2">From stronger harvests to stronger businesses, here is what changes when farming families have the right skills, inputs and markets.</p></div></section>
-<section class="section"><div class="wrap"><div class="grid-3"><article class="card reveal" style="--i:0"><img src="assets/img/gallery/groundnuts.jpg" alt="Freshly harvested groundnuts" width="1800" height="1350" loading="lazy"><div class="card-body"><h3>Food and nutrition security</h3><p>Diverse crops, cooking demonstrations and better storage put more nutritious food on household tables.</p></div></article><article class="card reveal" style="--i:1"><img src="assets/img/gallery/plot-wide.jpg" alt="Farmers at a vegetable plot with sorghum behind" width="1800" height="1350" loading="lazy"><div class="card-body"><h3>Climate-smart farming</h3><p>Irrigation, improved seed and field-school learning help farmers keep producing through erratic seasons.</p></div></article><article class="card reveal" style="--i:2"><img src="assets/img/gallery/women-planting.jpg" alt="Women farmers on a newly planted plot" width="1800" height="1350" loading="lazy"><div class="card-body"><h3>Women and youth empowerment</h3><p>Women, young people and marginalised groups gain skills, income and a voice in decisions.</p></div></article><article class="card reveal" style="--i:0"><img src="assets/img/gallery/banana-cane.jpg" alt="Bananas ripening beside sugarcane" width="1800" height="1350" loading="lazy"><div class="card-body"><h3>Market access and value chains</h3><p>Aggregation, processing and links to buyers help smallholders earn fair prices.</p></div></article><article class="card reveal" style="--i:1"><img src="assets/img/gallery/community-meeting.jpg" alt="Women farmers reviewing group records" width="1800" height="1350" loading="lazy"><div class="card-body"><h3>Financial inclusion</h3><p>Savings groups and financial literacy let families save, borrow and plan.</p></div></article><article class="card reveal" style="--i:2"><img src="assets/img/gallery/cane-group.jpg" alt="Community members gathered beside sugarcane" width="1800" height="1350" loading="lazy"><div class="card-body"><h3>Rural entrepreneurship</h3><p>Agro-dealers and rural SMEs bring inputs and services close to farmers and create local jobs.</p></div></article></div>
-<p class="impact-note reveal">Field stories, testimonials and verified results will be added here as they are cleared with our communities and partners. See <a href="gallery.html">the gallery</a> for more from the field.</p>
-</div></section>
+<span class="eyebrow rise">News</span><h1 class="rise" style="--i:1">Latest from the field</h1><p class="lede rise" style="--i:2">Follow our work as it happens on Facebook and LinkedIn.</p></div></section>
+<section class="section"><div class="wrap feeds">
+  <article class="feed reveal" id="feed-fb"><div class="feed-head"><h2>Facebook</h2><a class="btn btn-dark" id="fb-follow" href="#" target="_blank" rel="noopener" hidden>Follow us <span class="arr" aria-hidden="true">&rarr;</span></a></div><div class="feed-body" id="fb-body"></div></article>
+  <article class="feed reveal" id="feed-li" style="--i:1"><div class="feed-head"><h2>LinkedIn</h2><a class="btn btn-dark" id="li-follow" href="#" target="_blank" rel="noopener" hidden>Follow us <span class="arr" aria-hidden="true">&rarr;</span></a></div><div class="feed-body" id="li-body"></div></article>
+</div>
+<noscript><p class="wrap">Turn on JavaScript to see our latest posts.</p></noscript>
+</section>
 </main>
 
 <footer class="site-footer">
@@ -54,7 +57,9 @@
     <div class="foot-base"><span>© 2007–<span id="yr">2026</span> Nutri-Aid Trust. All rights reserved.</span><span><a href="#">Privacy Policy</a> · <a href="contact.html">Contact Us</a></span></div>
   </div>
 </footer>
+
 <script src="assets/js/main.js"></script>
+<script src="assets/js/news.js"></script>
 <script src="assets/js/motion.js"></script>
 <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
 </body>

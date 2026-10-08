@@ -1,5 +1,5 @@
 (() => {
-  const CAREERS_EMAIL = "info@nutriaidtrust.org";
+  const CAREERS_EMAIL = "careers@nutriaidtrust.org";
   const form = document.getElementById("apply"), note = document.getElementById("note");
   if (!form) return;
   form.addEventListener("submit", (e) => {
