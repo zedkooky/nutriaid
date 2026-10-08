@@ -35,7 +35,7 @@ Pages: `index`, `about`, `strategy`, `projects`, `impact`, `news`, `leadership`,
 
 ## Open items
 1. **News page:** needs the Facebook Page address and LinkedIn company page address (set at the top of `assets/js/news.js`). LinkedIn has no free live feed. Embedded posts can be added through "Embed this post".
-2. **Leadership:** portraits still missing for Mercy Kanswata, Evans Bwembya and Jeff Saminganja. Bios are missing for Mercy Kanswata, Marrian Kafuni and Jeff Saminganja. Confirm the spelling of Marrian/Marian Kafuni. Evans's surname is Bwembya on his CV and Bwenbya in an earlier list; the site uses Bwembya.
+2. **Leadership:** all six senior team members now have portraits. Bios are still missing for Mercy Kanswata, Marrian Kafuni and Jeff Saminganja; their cards show name and title only until the owner supplies text. Mutinta Nketana (board member) has a photo on file with the owner but is not on the site until the Board of Trustees page is decided. Confirm the spelling of Marrian/Marian Kafuni. Evans's surname is Bwembya on his CV and Bwenbya in an earlier list; the site uses Bwembya.
 3. **Board of Trustees:** names, roles and photos needed. The file named `Board_Members.docx` was actually a project-experience table, with no trustee names.
 4. **Careers form:** a static site cannot accept file uploads, so applicants attach their CV in the email that opens. Real uploads would need a small server script.
 5. **Financials and annual reports:** deferred. Needs approved PDFs, approved by the Country Director.
