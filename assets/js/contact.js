@@ -1,6 +1,5 @@
 (() => {
-  // TODO: set the organisation's real address. While empty, the form explains it is not connected yet.
-  const CONTACT_EMAIL = "";
+  const CONTACT_EMAIL = "info@nutriaidtrust.org";
   const form = document.getElementById("contact"), note = document.getElementById("note");
   const link = document.getElementById("info-email");
   if (CONTACT_EMAIL && link) { link.textContent = CONTACT_EMAIL; link.href = "mailto:" + CONTACT_EMAIL; }
