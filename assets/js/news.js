@@ -2,7 +2,7 @@
   // ---- Settings: fill these in, nothing else needs to change ----
   const NEWS = {
     // Full address of the Facebook Page, e.g. "https://www.facebook.com/YourPageName". Shows the live timeline.
-    facebookPage: "",
+    facebookPage: "https://www.facebook.com/profile.php?id=61591791951338",
     // Full address of the LinkedIn company page, e.g. "https://www.linkedin.com/company/your-company".
     linkedinPage: "",
     // LinkedIn does not offer a free live feed. To show posts, open a post on LinkedIn, choose
