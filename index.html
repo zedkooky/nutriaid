@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/motion.css">
+<link rel="stylesheet" href="assets/css/extra.css">
 <script>try{if(!sessionStorage.getItem("nat-splash")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("splash-active")}catch(e){}</script>
 </head>
 <body>
@@ -29,12 +30,16 @@
     <a class="brand" href="index.html" aria-label="Nutri-Aid Trust home"><img src="assets/img/logo.svg" alt="Nutri-Aid Trust" width="1289" height="780"></a>
     <button class="menu-btn" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><span></span></button>
     <ul class="nav-links" id="nav-links">
-      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li class="nav-home"><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="projects.html">Projects</a></li>
       <li><a href="impact.html">Impact</a></li>
+      <li><a href="news.html">News</a></li>
       <li><a href="leadership.html">Leadership</a></li>
       <li><a href="gallery.html">Gallery</a></li>
-      <li><a class="btn btn-primary" href="#partner">Partner With Us</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a class="btn btn-primary" href="index.html#partner">Partner With Us</a></li>
     </ul>
   </div>
 </header>
@@ -77,9 +82,9 @@
     <div class="reveal">
       <span class="eyebrow">Who we are</span>
       <h2>Established in 2007, driving rural development.</h2>
-      <p>Nutri-Aid Trust is a leading Zambian agribusiness NGO dedicated to transforming the agricultural landscape. We focus on bridging the gap between smallholder farmers and commercial markets, fostering enterprise development that ensures food security and economic stability.</p>
+      <p>Nutri-Aid Trust is a Zambian non-profit advancing agribusiness, climate-smart agriculture and nutrition to improve smallholder livelihoods and food security. We bridge the gap between smallholder farmers and markets, building the enterprises that make rural communities resilient.</p>
       <p>Our institutional approach prioritizes scalable, long-term solutions over short-term aid.</p>
-      <a class="btn btn-dark" href="leadership.html">Read Our Story <span class="arr" aria-hidden="true">→</span></a>
+      <a class="btn btn-dark" href="about.html">Read Our Story <span class="arr" aria-hidden="true">→</span></a>
     </div>
     <div class="collage reveal" style="--i:2">
       <div class="a" role="img" aria-label="Agricultural training session"></div>
@@ -91,8 +96,8 @@
 
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
-    <span>Agro-dealer development</span><span>Technical training</span><span>Market linkages</span><span>Financial inclusion</span><span>Data analytics</span>
-    <span>Agro-dealer development</span><span>Technical training</span><span>Market linkages</span><span>Financial inclusion</span><span>Data analytics</span>
+    <span>Agro-dealer development</span><span>Technical training</span><span>Market linkages</span><span>Financial inclusion</span><span>Climate-smart adaptation</span>
+    <span>Agro-dealer development</span><span>Technical training</span><span>Market linkages</span><span>Financial inclusion</span><span>Climate-smart adaptation</span>
   </div>
 </div>
 
@@ -122,8 +127,8 @@
         <p>Facilitating access to micro-credit, savings groups, and digital financial services tailored for the unique cash-flow cycles of rural agriculture.</p></article>
       <article class="pillar reveal" style="--i:4"><span class="no">05</span>
         <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6v36h36M12 32l9-9 6 6 13-15M32 14h8v8"/></svg>
-        <h3>Data Analytics</h3>
-        <p>Leveraging mobile technology to track yields, monitor input usage, and provide actionable intelligence to regional stakeholders.</p></article>
+        <h3>Climate-Smart Adaptation</h3>
+        <p>Helping communities adapt to a changing climate through Farmer Field Schools, irrigation, nature-based solutions and small livestock, so harvests and incomes hold up.</p></article>
     </div>
   </div>
 </section>
@@ -153,13 +158,29 @@
   </div>
 </section>
 
+<section class="section partners" id="partners">
+  <div class="wrap partners-grid">
+    <figure class="partner-photo reveal">
+      <img src="assets/img/gallery/community-meeting.jpg" alt="Women farmers reviewing records beside a project vehicle carrying the Nutri-Aid Trust, Oxfam and Irish Aid partnership logos" width="1800" height="1350" loading="lazy">
+      <figcaption>A community meeting beside a partnership vehicle</figcaption>
+    </figure>
+    <div class="reveal" style="--i:1">
+      <span class="eyebrow">Stronger together</span>
+      <h2>Community-led, partner-backed.</h2>
+      <p class="lede">Our work is delivered together with Oxfam and the Government of Ireland&rsquo;s International Development Programme through Ireland&rsquo;s Civil Society Partnership (ICSP), and alongside Women for Change and local farmer groups.</p>
+      <p>Decisions are made in meetings under the trees with the people who farm the land. Partners help turn those decisions into lasting change.</p>
+      <ul class="partner-pills"><li>Oxfam</li><li>Irish Aid &middot; ICSP</li><li>Women for Change</li><li>Farmer groups</li></ul>
+    </div>
+  </div>
+</section>
+
 <section class="section cta on-dark" id="partner">
   <div class="contours" aria-hidden="true"></div>
   <div class="wrap reveal">
     <span class="eyebrow">Partner with us</span>
     <h2>Build resilient agribusiness networks <em>with us.</em></h2>
     <p class="lede">Scalable, long-term solutions take strong partners. Let's talk about what we can grow together.</p>
-    <a class="btn btn-primary" href="mailto:[info@your-domain]">Partner With Us <span class="arr" aria-hidden="true">→</span></a>
+    <a class="btn btn-primary" href="mailto:info@nutriaidtrust.org">Partner With Us <span class="arr" aria-hidden="true">→</span></a>
   </div>
 </section>
 </main>
@@ -168,11 +189,11 @@
   <div class="wrap">
     <div class="foot-grid">
       <div><img src="assets/img/logo.svg" alt="Nutri-Aid Trust" width="1289" height="780"><p>Strengthening rural enterprise and growing agricultural futures across Zambia since 2007.</p></div>
-      <div><h4>Explore</h4><ul><li><a href="projects.html">Projects</a></li><li><a href="impact.html">Impact</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+      <div><h4>Explore</h4><ul><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="impact.html">Impact</a></li><li><a href="news.html">News</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact</a></li></ul></div>
       <div><h4>Our work</h4><ul><li><a href="index.html#expertise">Agro-dealer development</a></li><li><a href="index.html#expertise">Technical training</a></li><li><a href="index.html#expertise">Market linkages</a></li><li><a href="index.html#expertise">Financial inclusion</a></li></ul></div>
-      <div><h4>Contact</h4><ul><li>[Physical address, Lusaka]</li><li>[Phone number]</li><li><a href="mailto:[info@your-domain]">[info@your-domain]</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li>YWCA Building, Nationalist Road, opposite UTH, Lusaka, Zambia</li><li><a href="tel:0572241411">0572241411</a></li><li><a href="mailto:info@nutriaidtrust.org">info@nutriaidtrust.org</a></li></ul></div>
     </div>
-    <div class="foot-base"><span>© 2007–<span id="yr">2026</span> Nutri-Aid Trust. All rights reserved.</span><span><a href="#">Privacy Policy</a> · <a href="#">Contact Us</a></span></div>
+    <div class="foot-base"><span>© 2007–<span id="yr">2026</span> Nutri-Aid Trust. All rights reserved.</span><span><a href="#">Privacy Policy</a> · <a href="contact.html">Contact Us</a></span></div>
   </div>
 </footer>
 <script src="assets/js/main.js"></script>

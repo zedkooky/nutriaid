@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/motion.css">
+<link rel="stylesheet" href="assets/css/extra.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -20,11 +21,15 @@
     <a class="brand" href="index.html" aria-label="Nutri-Aid Trust home"><img src="assets/img/logo.svg" alt="Nutri-Aid Trust" width="1289" height="780"></a>
     <button class="menu-btn" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><span></span></button>
     <ul class="nav-links" id="nav-links">
-      <li><a href="index.html">Home</a></li>
+      <li class="nav-home"><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="projects.html">Projects</a></li>
       <li><a href="impact.html">Impact</a></li>
+      <li><a href="news.html">News</a></li>
       <li><a href="leadership.html">Leadership</a></li>
       <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contact.html">Contact</a></li>
       <li><a class="btn btn-primary" href="index.html#partner">Partner With Us</a></li>
     </ul>
   </div>
@@ -32,9 +37,35 @@
 
 <main id="main">
 <section class="page-hero on-dark"><div class="contours" aria-hidden="true"></div><div class="wrap">
-<span class="eyebrow rise">Gallery</span><h1 class="rise" style="--i:1">From the field</h1><p class="lede rise" style="--i:2">[One-line intro]</p></div></section>
-<section class="section"><div class="wrap"><div class="masonry"><div class="reveal"><div class="slot ">Photo</div></div><div class="reveal"><div class="slot portrait">Photo</div></div><div class="reveal"><div class="slot square">Photo</div></div><div class="reveal"><div class="slot ">Photo</div></div><div class="reveal"><div class="slot square">Photo</div></div><div class="reveal"><div class="slot portrait">Photo</div></div><div class="reveal"><div class="slot ">Photo</div></div><div class="reveal"><div class="slot square">Photo</div></div><div class="reveal"><div class="slot portrait">Photo</div></div></div>
-<p class="note">Placeholder content — replace the labelled slots with real material. Each card is a repeatable block in the HTML.</p>
+<span class="eyebrow rise">Gallery</span><h1 class="rise" style="--i:1">From the field</h1><p class="lede rise" style="--i:2">Farmers, gardens and harvests from our work with communities across Zambia.</p></div></section>
+<section class="section"><div class="wrap">
+<div class="chips" data-filter-group=".gcard" role="group" aria-label="Filter photos"><button class="chip" data-f="all" aria-pressed="true">All</button><button class="chip" data-f="gardens" aria-pressed="false">Gardens</button><button class="chip" data-f="crops" aria-pressed="false">Crops</button><button class="chip" data-f="people" aria-pressed="false">People</button><button class="chip" data-f="livestock" aria-pressed="false">Livestock</button></div>
+<div class="masonry gallery-grid">
+<figure class="reveal gcard" data-cat="gardens"><button type="button" class="gbtn" data-src="assets/img/gallery/field-officers.jpg" data-cap="Field officer and farmer reviewing a thriving kale garden"><img src="assets/img/gallery/field-officers-sm.jpg" alt="Field officer and farmer reviewing a thriving kale garden" loading="lazy"><span>Reviewing the kale garden</span></button></figure>
+<figure class="reveal gcard" data-cat="people"><button type="button" class="gbtn" data-src="assets/img/gallery/field-school.jpg" data-cap="A Farmer Field School session around a demonstration plot"><img src="assets/img/gallery/field-school-sm.jpg" alt="A Farmer Field School session around a demonstration plot" loading="lazy"><span>Farmer Field School session</span></button></figure>
+<figure class="reveal gcard" data-cat="gardens"><button type="button" class="gbtn" data-src="assets/img/gallery/kale-rows.jpg" data-cap="Neat rows of kale growing in the sun"><img src="assets/img/gallery/kale-rows-sm.jpg" alt="Neat rows of kale growing in the sun" loading="lazy"><span>Rows of kale</span></button></figure>
+<figure class="reveal gcard" data-cat="people"><button type="button" class="gbtn" data-src="assets/img/gallery/community-meeting.jpg" data-cap="Women farmers reviewing group records during a community meeting"><img src="assets/img/gallery/community-meeting-sm.jpg" alt="Women farmers reviewing group records during a community meeting" loading="lazy"><span>Reviewing group records</span></button></figure>
+<figure class="reveal gcard" data-cat="crops"><button type="button" class="gbtn" data-src="assets/img/gallery/groundnuts.jpg" data-cap="Freshly harvested groundnuts"><img src="assets/img/gallery/groundnuts-sm.jpg" alt="Freshly harvested groundnuts" loading="lazy"><span>Groundnut harvest</span></button></figure>
+<figure class="reveal gcard" data-cat="gardens"><button type="button" class="gbtn" data-src="assets/img/gallery/water-pit.jpg" data-cap="A water pit supplying the vegetable garden"><img src="assets/img/gallery/water-pit-sm.jpg" alt="A water pit supplying the vegetable garden" loading="lazy"><span>Water for the dry season</span></button></figure>
+<figure class="reveal gcard" data-cat="gardens"><button type="button" class="gbtn" data-src="assets/img/gallery/plot-wide.jpg" data-cap="Farmers at a vegetable plot with sorghum behind"><img src="assets/img/gallery/plot-wide-sm.jpg" alt="Farmers at a vegetable plot with sorghum behind" loading="lazy"><span>Vegetables and sorghum</span></button></figure>
+<figure class="reveal gcard" data-cat="livestock"><button type="button" class="gbtn" data-src="assets/img/gallery/goats.jpg" data-cap="A young farmer with his goats"><img src="assets/img/gallery/goats-sm.jpg" alt="A young farmer with his goats" loading="lazy"><span>Goat rearing</span></button></figure>
+<figure class="reveal gcard" data-cat="people"><button type="button" class="gbtn" data-src="assets/img/gallery/sunflower-dialogue.jpg" data-cap="Field staff in conversation with women farmers among sunflowers"><img src="assets/img/gallery/sunflower-dialogue-sm.jpg" alt="Field staff in conversation with women farmers among sunflowers" loading="lazy"><span>Listening to farmers</span></button></figure>
+<figure class="reveal gcard" data-cat="crops"><button type="button" class="gbtn" data-src="assets/img/gallery/bean-plot.jpg" data-cap="Monitoring a healthy bean plot"><img src="assets/img/gallery/bean-plot-sm.jpg" alt="Monitoring a healthy bean plot" loading="lazy"><span>Bean plot monitoring</span></button></figure>
+<figure class="reveal gcard" data-cat="crops"><button type="button" class="gbtn" data-src="assets/img/gallery/banana-cane.jpg" data-cap="Bananas ripening beside sugarcane"><img src="assets/img/gallery/banana-cane-sm.jpg" alt="Bananas ripening beside sugarcane" loading="lazy"><span>Bananas and cane</span></button></figure>
+<figure class="reveal gcard" data-cat="gardens"><button type="button" class="gbtn" data-src="assets/img/gallery/demo-plot.jpg" data-cap="Farmers and facilitators gathered at a vegetable demonstration plot"><img src="assets/img/gallery/demo-plot-sm.jpg" alt="Farmers and facilitators gathered at a vegetable demonstration plot" loading="lazy"><span>At the demonstration plot</span></button></figure>
+<figure class="reveal gcard" data-cat="people"><button type="button" class="gbtn" data-src="assets/img/gallery/women-planting.jpg" data-cap="Farmers on a newly planted plot"><img src="assets/img/gallery/women-planting-sm.jpg" alt="Farmers on a newly planted plot" loading="lazy"><span>A new plot, newly planted</span></button></figure>
+<figure class="reveal gcard" data-cat="crops"><button type="button" class="gbtn" data-src="assets/img/gallery/sugarcane.jpg" data-cap="A dense stand of sugarcane"><img src="assets/img/gallery/sugarcane-sm.jpg" alt="A dense stand of sugarcane" loading="lazy"><span>Sugarcane</span></button></figure>
+<figure class="reveal gcard" data-cat="people"><button type="button" class="gbtn" data-src="assets/img/gallery/listening-circle.jpg" data-cap="Women farmers meeting in a circle under the trees"><img src="assets/img/gallery/listening-circle-sm.jpg" alt="Women farmers meeting in a circle under the trees" loading="lazy"><span>Community circle</span></button></figure>
+<figure class="reveal gcard" data-cat="gardens"><button type="button" class="gbtn" data-src="assets/img/gallery/harvesting-kale.jpg" data-cap="Harvesting kale by hand"><img src="assets/img/gallery/harvesting-kale-sm.jpg" alt="Harvesting kale by hand" loading="lazy"><span>Harvest time</span></button></figure>
+<figure class="reveal gcard" data-cat="crops"><button type="button" class="gbtn" data-src="assets/img/gallery/maize-monitoring.jpg" data-cap="Monitors recording observations in the maize field"><img src="assets/img/gallery/maize-monitoring-sm.jpg" alt="Monitors recording observations in the maize field" loading="lazy"><span>Recording field data</span></button></figure>
+<figure class="reveal gcard" data-cat="people"><button type="button" class="gbtn" data-src="assets/img/gallery/cane-group.jpg" data-cap="Community members gathered beside sugarcane and bananas"><img src="assets/img/gallery/cane-group-sm.jpg" alt="Community members gathered beside sugarcane and bananas" loading="lazy"><span>Community among the cane</span></button></figure>
+<figure class="reveal gcard" data-cat="gardens"><button type="button" class="gbtn" data-src="assets/img/gallery/garden-walk.jpg" data-cap="Walking the garden beds together"><img src="assets/img/gallery/garden-walk-sm.jpg" alt="Walking the garden beds together" loading="lazy"><span>Walking the beds</span></button></figure>
+<figure class="reveal gcard" data-cat="people"><button type="button" class="gbtn" data-src="assets/img/gallery/village-meeting.jpg" data-cap="A village meeting held in the shade of the trees"><img src="assets/img/gallery/village-meeting-sm.jpg" alt="A village meeting held in the shade of the trees" loading="lazy"><span>Village meeting</span></button></figure>
+<figure class="reveal gcard" data-cat="people"><button type="button" class="gbtn" data-src="assets/img/gallery/partners-visit.jpg" data-cap="A field visit with farmers and partners"><img src="assets/img/gallery/partners-visit-sm.jpg" alt="A field visit with farmers and partners" loading="lazy"><span>Field visit</span></button></figure>
+<figure class="reveal gcard" data-cat="gardens"><button type="button" class="gbtn" data-src="assets/img/gallery/community-garden.jpg" data-cap="A community vegetable garden with farmers and facilitators"><img src="assets/img/gallery/community-garden-sm.jpg" alt="A community vegetable garden with farmers and facilitators" loading="lazy"><span>The community garden</span></button></figure>
+<figure class="reveal gcard" data-cat="people"><button type="button" class="gbtn" data-src="assets/img/gallery/field-monitoring.jpg" data-cap="A field monitor and farmer recording observations beside a plot"><img src="assets/img/gallery/field-monitoring-sm.jpg" alt="A field monitor and farmer recording observations beside a plot" loading="lazy"><span>Field monitoring</span></button></figure>
+<figure class="reveal gcard" data-cat="crops"><button type="button" class="gbtn" data-src="assets/img/gallery/maize-season.jpg" data-cap="A maize field at the end of the season"><img src="assets/img/gallery/maize-season-sm.jpg" alt="A maize field at the end of the season" loading="lazy"><span>Maize at season end</span></button></figure>
+</div>
 </div></section>
 </main>
 
@@ -42,14 +73,22 @@
   <div class="wrap">
     <div class="foot-grid">
       <div><img src="assets/img/logo.svg" alt="Nutri-Aid Trust" width="1289" height="780"><p>Strengthening rural enterprise and growing agricultural futures across Zambia since 2007.</p></div>
-      <div><h4>Explore</h4><ul><li><a href="projects.html">Projects</a></li><li><a href="impact.html">Impact</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+      <div><h4>Explore</h4><ul><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="impact.html">Impact</a></li><li><a href="news.html">News</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact</a></li></ul></div>
       <div><h4>Our work</h4><ul><li><a href="index.html#expertise">Agro-dealer development</a></li><li><a href="index.html#expertise">Technical training</a></li><li><a href="index.html#expertise">Market linkages</a></li><li><a href="index.html#expertise">Financial inclusion</a></li></ul></div>
-      <div><h4>Contact</h4><ul><li>[Physical address, Lusaka]</li><li>[Phone number]</li><li><a href="mailto:[info@your-domain]">[info@your-domain]</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li>YWCA Building, Nationalist Road, opposite UTH, Lusaka, Zambia</li><li><a href="tel:0572241411">0572241411</a></li><li><a href="mailto:info@nutriaidtrust.org">info@nutriaidtrust.org</a></li></ul></div>
     </div>
-    <div class="foot-base"><span>© 2007–<span id="yr">2026</span> Nutri-Aid Trust. All rights reserved.</span><span><a href="#">Privacy Policy</a> · <a href="#">Contact Us</a></span></div>
+    <div class="foot-base"><span>© 2007–<span id="yr">2026</span> Nutri-Aid Trust. All rights reserved.</span><span><a href="#">Privacy Policy</a> · <a href="contact.html">Contact Us</a></span></div>
   </div>
 </footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lb-x" id="lbx" aria-label="Close">&times;</button>
+  <button class="lb-n prev" id="lbp" aria-label="Previous photo">&lsaquo;</button>
+  <figure><img id="lbi" alt=""><figcaption id="lbc"></figcaption></figure>
+  <button class="lb-n next" id="lbn" aria-label="Next photo">&rsaquo;</button>
+</div>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/gallery.js"></script>
 <script src="assets/js/motion.js"></script>
 <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
 </body>
