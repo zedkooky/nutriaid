@@ -9,4 +9,20 @@ if [ "$MODE" = "staging" ]; then
   find _site -name '*.html' -exec sed -i 's|</head>|<meta name="robots" content="noindex, nofollow">\n</head>|' {} +
   printf 'User-agent: *\nDisallow: /\n' > _site/robots.txt
 fi
+if [ "$MODE" = "live" ]; then
+  # Live site: allow search engines and publish a sitemap. Set SITE_URL to change the address.
+  SITE_URL="${SITE_URL:-https://nutriaidtrust.org}"; SITE_URL="${SITE_URL%/}"
+  TODAY="$(date -u +%F)"
+  {
+    echo '<?xml version="1.0" encoding="UTF-8"?>'
+    echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+    for f in _site/*.html; do
+      n="$(basename "$f")"; [ "$n" = "404.html" ] && continue
+      if [ "$n" = "index.html" ]; then loc="$SITE_URL/"; else loc="$SITE_URL/$n"; fi
+      echo "  <url><loc>$loc</loc><lastmod>$TODAY</lastmod></url>"
+    done
+    echo '</urlset>'
+  } > _site/sitemap.xml
+  printf 'User-agent: *\nAllow: /\n\nSitemap: %s/sitemap.xml\n' "$SITE_URL" > _site/robots.txt
+fi
 echo "Built _site ($MODE): $(find _site -type f | wc -l) files"

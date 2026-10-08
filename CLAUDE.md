@@ -24,6 +24,10 @@ Pages: `index`, `about`, `strategy`, `projects`, `impact`, `news`, `leadership`,
 - The main domain still forwards to the old Bolt site. Do not change DNS without the owner's approval. Keep the Bolt site until the real domain checks out.
 - Secrets (FTP login) live only in GitHub (Settings, Secrets and variables, Actions). Never paste them into a chat or commit them.
 
+## Launch notes
+- `404.html`, and (live only) `robots.txt` and `sitemap.xml`, are generated or shipped by the build. Sitemap address defaults to `https://nutriaidtrust.org`; confirm with or without `www` before launch.
+- The host needs `ErrorDocument 404 /404.html` added to the live `.htaccess` (edit the existing file, never overwrite it).
+
 ## Decisions already made (do not reverse without asking the owner)
 - The logo stays exactly as it is.
 - Mission wording is the original: "We exist to develop, strengthen and build capacity of the agricultural based SMEs in order to feed into a sustainable climate smart agricultural production and improve food and nutrition security impacting into the farming community."
