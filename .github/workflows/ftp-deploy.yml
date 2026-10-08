@@ -47,23 +47,28 @@ jobs:
           elif [ "${{ github.ref }}" = "refs/heads/main" ]; then T=live
           else T=staging; fi
           if [ "$T" = "live" ]; then DIR='${{ secrets.FTP_LIVE_DIR }}'; else DIR='${{ secrets.FTP_STAGING_DIR }}'; fi
-          for v in FTP_SERVER FTP_USERNAME FTP_PASSWORD; do
-            case $v in
-              FTP_SERVER) val='${{ secrets.FTP_SERVER }}';;
-              FTP_USERNAME) val='${{ secrets.FTP_USERNAME }}';;
-              FTP_PASSWORD) val='${{ secrets.FTP_PASSWORD }}';;
-            esac
-            [ -n "$val" ] || { echo "::error::Missing secret $v"; exit 1; }
-          done
-          [ -n "$DIR" ] || { echo "::error::Missing secret FTP_${T^^}_DIR"; exit 1; }
+          MISSING=""
+          [ -n '${{ secrets.FTP_SERVER }}' ] || MISSING="$MISSING FTP_SERVER"
+          [ -n '${{ secrets.FTP_USERNAME }}' ] || MISSING="$MISSING FTP_USERNAME"
+          [ -n '${{ secrets.FTP_PASSWORD }}' ] || MISSING="$MISSING FTP_PASSWORD"
+          [ -n "$DIR" ] || MISSING="$MISSING FTP_${T^^}_DIR"
+          if [ -n "$MISSING" ]; then
+            if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+              echo "::error::Missing secrets:$MISSING"; exit 1
+            fi
+            echo "::notice::FTP upload skipped, secrets not set yet:$MISSING"
+            echo "skip=true" >> "$GITHUB_OUTPUT"; exit 0
+          fi
           echo "target=$T" >> "$GITHUB_OUTPUT"
           echo "dir=$DIR" >> "$GITHUB_OUTPUT"
           echo "Uploading to the $T folder"
 
       - name: Build
+        if: steps.t.outputs.skip != 'true'
         run: .github/scripts/build.sh ${{ steps.t.outputs.target }}
 
       - name: Upload over FTP
+        if: steps.t.outputs.skip != 'true'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
