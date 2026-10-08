@@ -1,0 +1,23 @@
+# ---------------------------------------------------------------------------
+# Nutri-Aid Trust: lines to ADD to the END of the live .htaccess file.
+# In cPanel: File Manager > the main folder > .htaccess > Edit.
+# Do NOT replace the file. If there is no .htaccess, create one with only these lines.
+# Make a copy of the existing file first (.htaccess-backup).
+# Each rule names the main domain, so staging.nutriaidtrust.org is not affected.
+# ---------------------------------------------------------------------------
+
+# Show our own "page not found" page
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# 1. www.nutriaidtrust.org  ->  https://nutriaidtrust.org
+RewriteCond %{HTTP_HOST} ^www\.nutriaidtrust\.org$ [NC]
+RewriteRule ^ https://nutriaidtrust.org%{REQUEST_URI} [L,R=301]
+
+# 2. http://nutriaidtrust.org  ->  https://nutriaidtrust.org
+RewriteCond %{HTTP_HOST} ^nutriaidtrust\.org$ [NC]
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://nutriaidtrust.org%{REQUEST_URI} [L,R=301]
+</IfModule>

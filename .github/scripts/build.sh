@@ -23,6 +23,6 @@ if [ "$MODE" = "live" ]; then
     done
     echo '</urlset>'
   } > _site/sitemap.xml
-  printf 'User-agent: *\nAllow: /\n\nSitemap: %s/sitemap.xml\n' "$SITE_URL" > _site/robots.txt
+  printf 'User-agent: *\nDisallow: /staging/\nAllow: /\n\nSitemap: %s/sitemap.xml\n' "$SITE_URL" > _site/robots.txt
 fi
 echo "Built _site ($MODE): $(find _site -type f | wc -l) files"

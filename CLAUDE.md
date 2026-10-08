@@ -25,6 +25,11 @@ Pages: `index`, `about`, `strategy`, `projects`, `impact`, `news`, `leadership`,
 - Secrets (FTP login) live only in GitHub (Settings, Secrets and variables, Actions). Never paste them into a chat or commit them.
 
 ## Launch notes
+- **Approved:** the Country Director has approved launch (confirmed by the owner). Official address: `https://nutriaidtrust.org` (no `www`); `www` redirects to it.
+- **Folders on the server:** the FTP login lands in the main root. Live is `/` (`FTP_LIVE_DIR` = `/`) and staging is `/staging/` (`FTP_STAGING_DIR`). One FTP account is used for both. A restricted account is still a good idea later.
+- **Host settings:** the exact `.htaccess` lines are in `docs-src/htaccess-snippet.txt`. They must be added to the live file by hand (never overwrite it).
+- **DNS:** managed by the owner. Only change the `A` records for the main domain and `www`; never touch MX or TXT records (email is already working). Keep the Bolt site until the real domain checks out.
+- The live `robots.txt` blocks `/staging/` so the test copy is not indexed.
 - `404.html`, and (live only) `robots.txt` and `sitemap.xml`, are generated or shipped by the build. Sitemap address defaults to `https://nutriaidtrust.org`; confirm with or without `www` before launch.
 - The host needs `ErrorDocument 404 /404.html` added to the live `.htaccess` (edit the existing file, never overwrite it).
 
