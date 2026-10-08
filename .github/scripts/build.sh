@@ -23,6 +23,8 @@ if [ "$MODE" = "live" ]; then
     done
     echo '</urlset>'
   } > _site/sitemap.xml
+  # Host settings (404 page, www -> main domain, http -> https). Live only; staging never gets this file.
+  grep -v '^#' docs-src/htaccess-snippet.txt | sed '/./,$!d' > _site/.htaccess
   printf 'User-agent: *\nDisallow: /staging/\nAllow: /\n\nSitemap: %s/sitemap.xml\n' "$SITE_URL" > _site/robots.txt
 fi
 echo "Built _site ($MODE): $(find _site -type f | wc -l) files"
