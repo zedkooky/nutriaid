@@ -2,7 +2,7 @@
   // ---- Settings: fill these in, nothing else needs to change ----
   const NEWS = {
     // Full address of the Facebook Page, e.g. "https://www.facebook.com/YourPageName". Shows the live timeline.
-    facebookPage: "https://www.facebook.com/profile.php?id=61591791951338",
+    facebookPage: "https://www.facebook.com/people/Nutri-Aid-Trust",
     // Full address of the LinkedIn company page, e.g. "https://www.linkedin.com/company/your-company".
     // true = try Facebook's live timeline box (it stayed blank for this page); false = show a link card.
     facebookEmbed: false,
