@@ -99,3 +99,9 @@
 .feed-body iframe { display: block; width: 100%; max-width: 100%; border: 0; border-radius: 10px; margin-bottom: var(--s4); }
 .feed-empty { color: var(--ink-soft); background: var(--sand); padding: var(--s5); border-radius: var(--radius); }
 @media (max-width: 820px) { .feeds { grid-template-columns: 1fr; } }
+
+/* Link card (Facebook) */
+.link-card { background: var(--sand); border-radius: var(--radius); padding: var(--s7) var(--s6); display: grid; gap: var(--s4); justify-items: start; }
+.link-card-ico { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: #1877f2; color: #fff; font: 800 2rem/1 var(--font-body); }
+.link-card h3 { font-size: 1.6rem; }
+.link-card p { color: var(--ink-soft); max-width: 42ch; }

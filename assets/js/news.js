@@ -4,6 +4,8 @@
     // Full address of the Facebook Page, e.g. "https://www.facebook.com/YourPageName". Shows the live timeline.
     facebookPage: "https://www.facebook.com/profile.php?id=61591791951338",
     // Full address of the LinkedIn company page, e.g. "https://www.linkedin.com/company/your-company".
+    // true = try Facebook's live timeline box (it stayed blank for this page); false = show a link card.
+    facebookEmbed: false,
     linkedinPage: "",
     // LinkedIn does not offer a free live feed. To show posts, open a post on LinkedIn, choose
     // "..." > "Embed this post", and paste the iframe's src address here (one per post, newest first).
@@ -13,9 +15,10 @@
   const el = (id) => document.getElementById(id);
   const note = (box, text) => { const p = document.createElement("p"); p.className = "feed-empty"; p.textContent = text; box.appendChild(p); };
 
-  // Facebook Page plugin: live timeline, updates by itself
+  // Facebook: a link card. (Facebook's live timeline box stayed blank for this page, so we link out instead.
+  // To try the live timeline box again, set facebookEmbed to true above.)
   const fbBox = el("fb-body");
-  if (NEWS.facebookPage) {
+  if (NEWS.facebookPage && NEWS.facebookEmbed) {
     const w = Math.max(280, Math.min(500, fbBox.clientWidth || 500));
     const f = document.createElement("iframe");
     f.title = "Nutri-Aid Trust on Facebook";
@@ -24,10 +27,22 @@
     f.src = "https://www.facebook.com/plugins/page.php?href=" + encodeURIComponent(NEWS.facebookPage) +
       "&tabs=timeline&width=" + w + "&height=720&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false";
     fbBox.appendChild(f);
-    const a = el("fb-follow"); a.href = NEWS.facebookPage; a.hidden = false;
+  } else if (NEWS.facebookPage) {
+    const card = document.createElement("div");
+    card.className = "link-card";
+    card.innerHTML =
+      '<span class="link-card-ico" aria-hidden="true">f</span>' +
+      "<h3>Latest from Nutri-Aid Trust</h3>" +
+      "<p>See our newest photos, project updates and field stories on our Facebook page.</p>";
+    const a = document.createElement("a");
+    a.className = "btn btn-primary"; a.href = NEWS.facebookPage; a.target = "_blank"; a.rel = "noopener";
+    a.innerHTML = 'Visit our Facebook page <span class="arr" aria-hidden="true">\u2192</span>';
+    card.appendChild(a);
+    fbBox.appendChild(card);
   } else {
     note(fbBox, "Our Facebook updates will appear here soon.");
   }
+  if (NEWS.facebookPage && NEWS.facebookEmbed) { const a = el("fb-follow"); a.href = NEWS.facebookPage; a.hidden = false; }
 
   // LinkedIn: embedded posts you choose, plus a follow button
   const liBox = el("li-body");
